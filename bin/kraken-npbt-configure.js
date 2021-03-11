@@ -23,3 +23,5 @@ if (!isProjectConfigured(cwd)) {
 
 convertJavaScript(cwd);
 generateCMake(cwd);
+
+console.log('Configure success');

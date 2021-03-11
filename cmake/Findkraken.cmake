@@ -5,16 +5,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 if ($ENV{KRAKEN_JS_ENGINE} MATCHES "jsc")
     add_compile_options(-DKRAKEN_JSC_ENGINE=1)
     if (${IS_ANDROID})
-        list(APPEND BRIDGE_INCLUDE
-                ${CMAKE_CURRENT_SOURCE_DIR}/third_party/
-                )
+        list(APPEND BRIDGE_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/kraken/third_party/)
         add_library(JavaScriptCore SHARED IMPORTED)
         set_target_properties(JavaScriptCore PROPERTIES IMPORTED_LOCATION
                 "${CMAKE_CURRENT_SOURCE_DIR}/kraken/lib/android/jniLibs/${ANDROID_ABI}/libjsc.so"
                 )
-        list(APPEND BRIDGE_LINK_LIBS
-                JavaScriptCore
-                )
+        list(APPEND BRIDGE_LINK_LIBS JavaScriptCore)
     else()
         list(APPEND BRIDGE_LINK_LIBS "-framework JavaScriptCore")
     endif()
