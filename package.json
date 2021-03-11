@@ -1,9 +1,9 @@
 {
-  "name": "plugin-build-tools",
+  "name": "kraken-npbt",
   "version": "0.0.1",
   "description": "kraken native(C/C++) plugin build tool",
   "bin": {
-    "kraken-build-tools": "bin/index.js"
+    "kraken-npbt": "bin/index.js"
   },
   "scripts": {
     "test": "npm test"
