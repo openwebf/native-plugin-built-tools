@@ -1,6 +1,6 @@
-## Kraken Native-Plugin-Build-Tool
+## Native(C/C++) plugin build tool for Kraken
 
-kraken native(C/C++) plugin build tool is a useful tool when you work with C/C++ and JavaScript source file in Kraken plugin development.
+Native(C/C++) plugin build tool is a useful tool when you work with C/C++ and JavaScript source file in Kraken plugin development.
 
 It can generate CMake projects to support the development of Kraken native plugin addons.
 
