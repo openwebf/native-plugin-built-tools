@@ -2,6 +2,7 @@ const { isProjectConfigured, getProjectName } = require('../lib/util.js');
 const buildMacOS = require('../lib/build-macos');
 const buildIOS = require('../lib/build-ios');
 const buildAndroid = require('../lib/build-android');
+const { findJSC } = require('../lib/finder');
 const path = require('path');
 const cwd = process.cwd();
 if (!isProjectConfigured(cwd)) {
@@ -10,7 +11,13 @@ if (!isProjectConfigured(cwd)) {
 
 const projectName = getProjectName(cwd);
 const bridgeDir = path.join(cwd, 'bridge');
+const jscPath = findJSC();
 
-buildMacOS(bridgeDir, projectName);
-buildIOS(bridgeDir, projectName);
-buildAndroid(bridgeDir, projectName);
+// @FIXME: enable build android and ios when jsc binary exists.
+if (jscPath) {
+  buildMacOS(bridgeDir, projectName, jscPath);
+} else {
+  buildMacOS(bridgeDir, projectName);
+  buildIOS(bridgeDir, projectName);
+  buildAndroid(bridgeDir, projectName);
+}
