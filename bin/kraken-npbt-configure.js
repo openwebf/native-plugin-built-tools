@@ -4,9 +4,10 @@ const configureProject = require('../lib/configure-project');
 const { isFlutterPluginDir, isFlutterPubGet, isProjectConfigured } = require('../lib/util.js');
 const generateCMake = require('../lib/generate-cmake');
 const convertJavaScript = require('../lib/convert-javascript');
-const findKraken = require('../lib/find-kraken');
+const { findKraken, findJSC } = require('../lib/finder');
 
 const krakenPath = findKraken();
+const jscPath = findJSC();
 const cwd = process.cwd();
 
 if (!isFlutterPluginDir(cwd)) {
@@ -18,7 +19,7 @@ if (!isFlutterPubGet(cwd)) {
 }
 
 if (!isProjectConfigured(cwd)) {
-  configureProject(cwd, krakenPath);
+  configureProject(cwd, krakenPath, jscPath);
 }
 
 convertJavaScript(cwd);
