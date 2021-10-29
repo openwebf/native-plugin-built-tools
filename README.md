@@ -1,4 +1,4 @@
-## Native(C/C++) plugin build tool for Kraken
+## Native(C/C++) plugin build tool for Kraken [![npm](https://img.shields.io/npm/v/kraken-npbt)](https://www.npmjs.com/package/kraken-npbt)
 
 Native(C/C++) plugin build tool is a useful tool when you work with C/C++ and JavaScript source file in Kraken plugin development.
 
